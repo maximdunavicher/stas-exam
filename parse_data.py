@@ -10,10 +10,12 @@ def parse_data(data_file_full_path):
     """
     unknown = "?"
     max_row_len = 15
-    final_x_matrix = list()
-    final_y_vector = list()
+    final_x_matrix = []
+    final_y_vector = []
+
     with open(data_file_full_path) as f:
         for line in f:
+            # TODO - think about readlines() in order to access the file just once
             row = [x.strip() for x in line.split(',')]
             if unknown not in row and len(row) == max_row_len:
                 x, y = parse(row)

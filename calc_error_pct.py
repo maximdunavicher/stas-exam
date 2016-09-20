@@ -6,12 +6,12 @@ def calculate_error_percentage(y_vector, predicted_y_vector):
     """
 
     # Make sure both vectors are of the same size
-    assert(y_vector.__len__() == predicted_y_vector.__len__())
+    assert(len(y_vector) == len(predicted_y_vector))
 
     # Calculate how many errors occurred
     error_count = 0
-    total_samples = y_vector.__len__()
-    for i in range(0, total_samples):
+    total_samples = len(y_vector)
+    for i in xrange(total_samples):
         if y_vector[i] != predicted_y_vector[i]:
             error_count += 1
 

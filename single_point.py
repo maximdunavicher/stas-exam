@@ -67,7 +67,7 @@ def parse(split_line_array):
     # Native-country
     x.append(native_country_values.index(split_line_array[13]))
     y_value = str(split_line_array[14])
-    if y_value.__contains__('<=50K'):
+    if '<=50K' in y_value:
         y_value = 0
     else:
         y_value = 1
