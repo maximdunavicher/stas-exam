@@ -1,9 +1,9 @@
 from Tkinter import *
-import ttk
 from svm_handler import SVMHandler
-from mail import sendemail
+from mail import send_email
 import threading
 import tkMessageBox
+
 __author__ = 'stas'
 
 
@@ -29,9 +29,10 @@ def run_gui():
         """
         invoking the testing in a thread, checking if the classifier is created
         """
-        if not svm_handler.isClassifierExists():
+        if not svm_handler.is_classifier_exists():
             tkMessageBox.showinfo("Support Vector Machine",
-                                  "Please, teach the SVM before testing it (start training and wait until its finished) ")
+                                  "Please, teach the SVM before testing it "
+                                  "(start training and wait until its finished)")
         else:
             thread_starter(svm_handler.test, ())
 
@@ -41,9 +42,10 @@ def run_gui():
         """
         if svm_handler.error_percentage == -1:
             tkMessageBox.showinfo("Support Vector Machine",
-                                  "Please, test the SVM before sending the result (start testing and wait until its finished) ")
+                                  "Please, test the SVM before sending the result "
+                                  "(start testing and wait until its finished)")
         else:
-            thread_starter(sendemail, (svm_handler.error_percentage,))
+            thread_starter(send_email, (svm_handler.error_percentage,))
 
     """
     creating the GUI, using Tkinter, setting configurations of the root,

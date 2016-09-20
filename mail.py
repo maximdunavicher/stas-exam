@@ -1,6 +1,9 @@
 # A function that sends the email of the result to hadas.c@velismedia.com.
 import smtplib
-def sendemail(perecent):
+__author__ = 'stas'
+
+
+def send_email(perecent):
     from_addr = 'stasinterview@gmail.com'
     login = 'stasinterview'
     password = 'velismedia'
@@ -9,7 +12,7 @@ def sendemail(perecent):
     cc_addr_list = ''
     subject = 'Velis Media assignment result'
     message = 'The error percentage of the classifier is {0}'.format(perecent)
-    
+
     header = 'From: %s\n' % from_addr
     header += 'To: %s\n' % ','.join(to_addr_list)
     header += 'Cc: %s\n' % ','.join(cc_addr_list)
@@ -21,11 +24,3 @@ def sendemail(perecent):
     server.sendmail(from_addr, to_addr_list, message)
     server.quit()
     print("Email sent")
-
-
-
-
-
-
-
-

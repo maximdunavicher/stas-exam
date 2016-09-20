@@ -1,3 +1,6 @@
+__author__ = 'stas'
+
+
 def calculate_error_percentage(y_vector, predicted_y_vector):
     """Gets a vector y of results, and vector y_prediction of predictions, compares, and calculates error percentage
     """
@@ -5,7 +8,7 @@ def calculate_error_percentage(y_vector, predicted_y_vector):
     # Make sure both vectors are of the same size
     assert(y_vector.__len__() == predicted_y_vector.__len__())
 
-    # Calculate how many errors occured
+    # Calculate how many errors occurred
     error_count = 0
     total_samples = y_vector.__len__()
     for i in range(0, total_samples):
